@@ -1,3 +1,6 @@
+https://youtu.be/9wQctmJ26jY
+https://flipthecube.netlify.app/
+
 # What is this game?
 
 This is a Game in which the user is given 6 cubes, with each cube having a color on it's back.
