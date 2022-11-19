@@ -2,6 +2,10 @@
     font-family: 'Covered By Your Grace', cursive;
     font-size: 30px;
 }
+body{
+    background-color: #99E666;
+    margin: 0 !important;
+}
 .navbar{
     position: relative;
     display: flex;
@@ -37,10 +41,10 @@
 }
 .right{
     align-items: right;
-    padding-right: 10px;
+    padding-right: 30px;
 }
 .navigation{
     display: flex;
     justify-content: space-evenly;
-    width: 10%;
+    /* width: 10%; */
 }

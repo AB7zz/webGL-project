@@ -32,7 +32,7 @@ let countColor = [0, 0, 0]
 let timeLeft = 0;
 let chosenColor = []
 let animate
-let colors = ["green", "green", "red", "red", "yellow", "yellow", "blue", "blue", "orange", "orange", "pink", "pink"]
+let colors = ["green", "green", "red", "red", "yellow", "yellow"]
 let prevId = -1
 let correctCount = 0
 let correctCanvas = []
@@ -144,15 +144,6 @@ var initDemo = function(id, click, rotate, bgC) {
             code = [1.0, 0.0, 0.15]
         }else if(color == "yellow"){
             code = [0.9, 1.0, 0.1]
-        }
-        else if(color == "blue"){
-            code = [0.2, 0.1, 0.9]
-        }
-        else if(color == "orange"){
-            code = [0.8, 0.5, 0.0]
-        }
-        else if(color == "pink"){
-            code = [0.9, 0.2, 0.7]
         }
         return code[i]
     }
@@ -277,7 +268,7 @@ var initDemo = function(id, click, rotate, bgC) {
     var viewMatrix = new Float32Array(16)
     var projMatrix = new Float32Array(16)
     glMatrix.mat4.identity(worldMatrix)
-    glMatrix.mat4.lookAt(viewMatrix, [0, 0, -10], [0, 0, 0,], [0, 1, 0])
+    glMatrix.mat4.lookAt(viewMatrix, [0, 0, -5], [0, 0, 0,], [0, 1, 0])
     var toRadian = function (angle) {
         return angle * Math.PI/180;
     }
@@ -341,17 +332,20 @@ function lol(id){
             }
             if(chosenColor[prevId] == chosenColor[id]){
                 correctCount++
+
+                let canvas1 = document.getElementById(id)
+                let canvas2 = document.getElementById(prevId)
+                canvas1.style.opacity = 0
+                canvas2.style.opacity = 0
     
                 if(correctCount == 3){
-                    alert("You've won the game! You took", timeLeft, " seconds to complete the game.")
+                    clearInterval(timerId)
+                    alert("You've won the game! You took " + timeLeft + " seconds to complete the game.")
                     window.location.reload()
                 }
             }
             console.log(id, prevId)
-            initDemo(id, false, 1, correctColor)
-            initDemo(prevId, false, 1, correctColor)
             prevId = -1
-            clearInterval(countdown)
         }, 2000)
     }
 }
@@ -368,9 +362,3 @@ initDemo('glCanvas3', false, 1, wrongColor)
 initDemo('glCanvas4', false, 1, wrongColor)
 initDemo('glCanvas5', false, 1, wrongColor)
 initDemo('glCanvas6', false, 1, wrongColor)
-initDemo('glCanvas7', false, 1, wrongColor)
-initDemo('glCanvas8', false, 1, wrongColor)
-initDemo('glCanvas9', false, 1, wrongColor)
-initDemo('glCanvas10', false, 1, wrongColor)
-initDemo('glCanvas11', false, 1, wrongColor)
-initDemo('glCanvas12', false, 1, wrongColor)
